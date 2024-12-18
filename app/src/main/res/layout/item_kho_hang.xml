@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/maSPTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã SP"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/tenSPTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên SP"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/soLuongTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số lượng"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/soLuongDaBanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:paddingEnd="16dp"
+        android:textStyle="bold"
+        android:text="SL đã bán"/>
+
+    <TextView
+        android:id="@+id/soLuongConLaiTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:paddingEnd="16dp"
+        android:textStyle="bold"
+        android:text="SL còn lại "/>
+
+</LinearLayout>

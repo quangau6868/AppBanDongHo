@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DongHo</string>
+
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_noi_bat">Nổi bật</string>
+    <string name="nav_gio_hang">Giỏ hàng</string>
+    <string name="nav_profile">Hồ sơ</string>
+    <string name="nav_loai_san_pham">Loại sản phẩm</string>
+    <string name="nav_san_pham">Sản phẩm</string>
+    <string name="nav_thanh_toan">Đặt hàng</string>
+    <string name="add_item">Thêm sản phẩm</string>
+</resources>
