@@ -2,6 +2,7 @@ package com.app.dongho.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -76,8 +77,16 @@ public class ResetPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String userEmail = txtgmail.getText().toString().trim();
+
+                // Loại bỏ tiền tố "Gmail: " nếu có
+                if (userEmail.startsWith("Gmail: ")) {
+                    userEmail = userEmail.substring(7).trim(); // Loại bỏ "Gmail: "
+                }
                 String newpass1 = EditTextPassword.getText().toString().trim();
                 String newpass2 = EditTextConfirmPassword.getText().toString().trim();
+
+                // Kiểm tra giá trị email
+                Log.d("ResetPasswordActivity", "User email: " + userEmail);
 
                 if (newpass1.isEmpty()) {
                     EditTextPassword.setError("Mật khẩu không được để trống!");
@@ -96,9 +105,19 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     return;
                 }
 
+                // Kiểm tra giá trị mật khẩu
+                Log.d("ResetPasswordActivity", "New password: " + newpass1);
+                Log.d("ResetPasswordActivity", "Confirm password: " + newpass2);
+
                 // Nếu tất cả các điều kiện đều hợp lệ
                 User user = new User(userEmail, newpass1);
+
+                // Kiểm tra kết quả từ phương thức updatePassword
                 boolean check = userDao.updatePassword(user);
+
+                // Log kết quả update
+                Log.d("ResetPasswordActivity", "Update password result: " + check);
+
                 if (check) {
                     startActivity(new Intent(ResetPasswordActivity.this, SuccesfullyRegisteredActivity.class));
                     Toast.makeText(ResetPasswordActivity.this, "Đặt lại mật khẩu thành công", Toast.LENGTH_SHORT).show();
@@ -107,6 +126,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 }

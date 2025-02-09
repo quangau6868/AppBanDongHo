@@ -106,7 +106,7 @@ public class HoSoFragment extends Fragment {
         });
 
         button_facebook.setOnClickListener(view -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=61570306146187"));
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/profile.php?id=61570625647674"));
             startActivity(browserIntent);
         });
 

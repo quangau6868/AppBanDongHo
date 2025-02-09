@@ -19,7 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="35dp"
                 android:orientation="horizontal">
 
                 <!-- Nút quay lại -->
@@ -212,15 +212,15 @@
             android:text="Bình luận"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerViewDanhgia"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:padding="5dp"/>
+            android:layout_marginBottom="20dp"
+            />
 
     </LinearLayout>
 </ScrollView>

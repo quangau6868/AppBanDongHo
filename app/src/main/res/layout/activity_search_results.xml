@@ -13,13 +13,13 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:paddingBottom="8dp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="22dp" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="12dp" />
 
     <!-- RecyclerView để hiển thị danh sách sản phẩm tìm kiếm -->
     <androidx.recyclerview.widget.RecyclerView

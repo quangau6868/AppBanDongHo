@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.app.dongho.database.DBHelper;
 import com.app.dongho.model.User;
@@ -70,16 +71,34 @@ public class UserDao {
     //update Password
     public boolean updatePassword(User user) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+
+        // Kiểm tra nếu email có tồn tại trong cơ sở dữ liệu không
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM USER WHERE Email = ?", new String[]{user.getEmail()});
+        if (cursor.getCount() <= 0) {
+            Log.d("UserDao", "No user found with the email: " + user.getEmail());
+            cursor.close();
+            sqLiteDatabase.close();
+            return false;
+        }
+
+        // Log thông tin người dùng tìm thấy
+        cursor.moveToFirst();
+        String emailFromDb = cursor.getString(cursor.getColumnIndex("Email"));
+        String passwordFromDb = cursor.getString(cursor.getColumnIndex("Password"));
+        Log.d("UserDao", "Found user - Email: " + emailFromDb + ", Password: " + passwordFromDb);
+        cursor.close();
+
+        // Cập nhật mật khẩu nếu email tồn tại
         ContentValues contentValues = new ContentValues();
         contentValues.put("Password", user.getPassword());
 
+        // Kiểm tra số dòng bị ảnh hưởng
         int rowsAffected = sqLiteDatabase.update("USER", contentValues, "Email = ?", new String[]{user.getEmail()});
+        Log.d("UserDao", "Rows affected: " + rowsAffected);
+
         sqLiteDatabase.close();
         return rowsAffected > 0;
     }
-
-
-
 }
 
 
